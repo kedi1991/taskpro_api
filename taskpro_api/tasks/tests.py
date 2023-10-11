@@ -12,6 +12,6 @@ class TaskListViewTests(APITestCase):
         kedi = User.objects.get(username='kedi')
         Task.objects.create(owner=kedi, task_name='Test task')
         response = self.client.get('/tasks/')
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         print(response.data, len(response.data))
 
