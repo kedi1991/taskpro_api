@@ -9,7 +9,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=255, blank=True)
     about = models.TextField(blank=True)
     image = models.ImageField(
-        upload_to='images/', blank=True
+        upload_to='images/', default='../def_pic_f4egsp', blank=True
     )
 
 
