@@ -6,6 +6,7 @@ TaskPRO is a task management app built using the Django framework. This API you 
 
 1. User
 The user with an account with TaskPRO.
+Adding a new user automatically creates a profile with default profile photo.
 
 2. Profile
 The user group with specifi attributes and rights to individual fucntionality of the API
