@@ -17,7 +17,7 @@ The assigned duty to a user. this can be assigned to self or by another person.
 4. Project
 The specific 
 
-
+Run tests: python manage.py test
 
 
 
