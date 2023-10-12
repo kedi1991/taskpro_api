@@ -7,6 +7,8 @@ from rest_framework import status
 from taskpro_api.permissions import IsOwnerOrReadOnly
 
 class ProfileList(APIView):
+    serializer_class = ProfileSerializer
+
     def get(self, request):
         profiles = Profile.objects.all()
         serializer = ProfileSerializer(profiles, many= True, context= {'request' : request})
