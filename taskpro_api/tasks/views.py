@@ -7,11 +7,21 @@ from rest_framework import status
 from taskpro_api.permissions import IsOwnerOrReadOnly
 
 class TaskList(APIView):
+    #Simplify the API view
+    serializer_class = TaskSerializer
+    
     def get(self, request):
         tasks = Task.objects.all()
         serializer = TaskSerializer(tasks, many= True, context= {'request' : request})
         return Response(serializer.data)
 
+    def post (self, request):
+        serializer=TaskSerializer(data=request.data, context= {'request' : request})
+        if serializer.is_valid():
+            serializer.save()
+            #serializer.save(owner=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class TaskDetail(APIView):
 
