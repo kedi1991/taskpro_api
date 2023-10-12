@@ -78,7 +78,7 @@ JWT_AUTH_SECURE = True
 
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 
-
+REST_AUTH_SERIALIZERS = {'USER_DETAILS_SERIALIZER': 'taskpro_api.serializers.CurrentUserSerializer'}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
