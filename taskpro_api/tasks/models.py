@@ -10,10 +10,10 @@ class Task(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     task_name = models.CharField(max_length=255)
     description = models.TextField(blank=False)
-    assignees = models.CharField(max_length=255)
-    project = models.CharField(max_length=255)
-    status = models.CharField(max_length=255)
-    attachment = models.CharField(max_length=255)
+    assignees = models.CharField(max_length=255, blank=True)
+    project = models.CharField(max_length=255, blank=True)
+    status = models.CharField(max_length=255, default='Not started')
+    attachment = models.CharField(max_length=255, blank=True)
 
     class Meta:
         ordering = ['-created_at']
