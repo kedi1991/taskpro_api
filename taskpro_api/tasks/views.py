@@ -3,12 +3,13 @@ from rest_framework.response import Response
 from .models import Task
 from .serializers import TaskSerializer
 from django.http import Http404
-from rest_framework import status
+from rest_framework import status, permissions
 from taskpro_api.permissions import IsOwnerOrReadOnly
 
 class TaskList(APIView):
     #Simplify the API view
     serializer_class = TaskSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     
     def get(self, request):
         tasks = Task.objects.all()
