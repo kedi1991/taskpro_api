@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
- 
 class Project(models.Model):
     """
     Project model for details of the project the user is working on
