@@ -35,7 +35,9 @@ SECRET_KEY = 'django-insecure-h$3(w6349_3nxg^_z+9ui+ldku-c0sn@(j6d@@nd7-3zx5^8cg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-kedi1991-taskproapi-cn49kx50hwu.ws-eu105.gitpod.io']
+ALLOWED_HOSTS = ['8000-kedi1991-taskproapi-cn49kx50hwu.ws-eu105.gitpod.io',
+'taskproapi.herokuapp.com', 'localhost'
+]
 
 # Application definition
 
@@ -56,6 +58,7 @@ INSTALLED_APPS = [
     'allauth.account', 
     'allauth.socialaccount', 
     'dj_rest_auth.registration',
+    'corsheaders',
     'profiles',
     'projects',
     'tasks',
@@ -91,6 +94,7 @@ JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 REST_AUTH_SERIALIZERS = {'USER_DETAILS_SERIALIZER': 'taskpro_api.serializers.CurrentUserSerializer'}
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -99,6 +103,22 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^https://.*\.gitpod\.io$",
+    ]
+
+CORS_ALLOW_CREDENTIALS = True
+
+JWT_AUTH_SAMESITE = 'None'
+
+
+
 
 ROOT_URLCONF = 'taskpro_api.urls'
 
