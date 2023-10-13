@@ -36,7 +36,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ['8000-kedi1991-taskproapi-cn49kx50hwu.ws-eu105.gitpod.io',
-'taskproapi.herokuapp.com', 'localhost', 'https://taskproapi-af20c66822dd.herokuapp.com', 'taskproapi-af20c66822dd.herokuapp.com/'
+'taskproapi.herokuapp.com', 'localhost', 'https://taskproapi-af20c66822dd.herokuapp.com', 'taskproapi-af20c66822dd.herokuapp.com'
 ]
 
 # Application definition
