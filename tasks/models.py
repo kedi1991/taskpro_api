@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
- 
+
+
 class Task(models.Model):
     """
     Task model for details of the task assigned to someone/ self
@@ -17,7 +18,6 @@ class Task(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-        
+
     def __str__(self):
         return f'{self.id} {self.task_name}'
-
