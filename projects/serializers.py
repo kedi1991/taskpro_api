@@ -6,7 +6,6 @@ class ProjectSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
 
-
     class Meta:
         model = Project
         fields = [
@@ -16,5 +15,3 @@ class ProjectSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
- 
-

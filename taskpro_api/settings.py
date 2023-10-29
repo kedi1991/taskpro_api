@@ -19,7 +19,7 @@ if os.path.exists('env.py'):
     import env
 
 CLOUDINARY_STORAGE = {'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
-}
+                      }
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
@@ -37,8 +37,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ['8000-kedi1991-taskproapi-cn49kx50hwu.ws-eu105.gitpod.io',
-os.environ.get('ALLOWED_HOST'), 'localhost', 'taskproapi-af20c66822dd.herokuapp.com'
-]
+                 os.environ.get(
+                     'ALLOWED_HOST'), 'localhost', 'taskproapi-af20c66822dd.herokuapp.com'
+                 ]
 
 # Application definition
 
@@ -52,12 +53,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
-    'rest_framework.authtoken', 
-    'dj_rest_auth', 
-    'django.contrib.sites', 
-    'allauth', 
-    'allauth.account', 
-    'allauth.socialaccount', 
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'dj_rest_auth.registration',
     'corsheaders',
     'profiles',
@@ -68,15 +69,15 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [( 
-        'rest_framework.authentication.SessionAuthentication' 
-        if 'DEV' in os.environ 
+    'DEFAULT_AUTHENTICATION_CLASSES': [(
+        'rest_framework.authentication.SessionAuthentication'
+        if 'DEV' in os.environ
         else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
     )],
     'DEFAULT_PAGINATION_CLASS':  'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 15,
-    'DATETIME_FORMAT': '%d %b %Y %H:%M:%S' ,
-    }
+    'DATETIME_FORMAT': '%d %b %Y %H:%M:%S',
+}
 
 if 'DEV' not in os.environ:
     REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
@@ -92,7 +93,8 @@ JWT_AUTH_SECURE = True
 
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 
-REST_AUTH_SERIALIZERS = {'USER_DETAILS_SERIALIZER': 'taskpro_api.serializers.CurrentUserSerializer'}
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'taskpro_api.serializers.CurrentUserSerializer'}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -107,16 +109,15 @@ MIDDLEWARE = [
 
 if 'CLIENT_ORIGIN' in os.environ:
     if 'CLIENT_ORIGIN_DEV' in os.environ:
-        extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+        extracted_url = re.match(
+            r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
         CORS_ALLOWED_ORIGIN_REGEXES = [
-        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
-    ]
+            rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
+        ]
 
 CORS_ALLOW_CREDENTIALS = True
 
 JWT_AUTH_SAMESITE = 'None'
-
-
 
 
 ROOT_URLCONF = 'taskpro_api.urls'
@@ -148,7 +149,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-    if 'DEV' in os.environ 
+    if 'DEV' in os.environ
     else dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
 }

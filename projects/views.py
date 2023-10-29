@@ -6,18 +6,22 @@ from django.http import Http404
 from rest_framework import status, permissions
 from taskpro_api.permissions import IsOwnerOrReadOnly
 
+
 class ProjectList(APIView):
-    
-    #Simplify the API view
+
+    # Simplify the API view
     serializer_class = ProjectSerializer
-    permission_classes =[permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
     def get(self, request):
         projects = Project.objects.all()
-        serializer = ProjectSerializer(projects, many= True, context= {'request' : request})
+        serializer = ProjectSerializer(
+            projects, many=True, context={'request': request})
         return Response(serializer.data)
 
-    def post (self, request):
-        serializer=ProjectSerializer(data=request.data, context= {'request' : request})
+    def post(self, request):
+        serializer = ProjectSerializer(
+            data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save(owner=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -26,27 +30,27 @@ class ProjectList(APIView):
 
 class ProjectDetail(APIView):
 
-    #Simplify the API view
+    # Simplify the API view
     serializer_class = ProjectSerializer
-    permission_classes =[IsOwnerOrReadOnly]
-
+    permission_classes = [IsOwnerOrReadOnly]
 
     def get_object(self, pk):
         try:
-            project=Project.objects.get(pk=pk)
-            self.check_object_permissions (self.request, project)
+            project = Project.objects.get(pk=pk)
+            self.check_object_permissions(self.request, project)
             return project
         except Project.DoesNotExist:
             raise Http404
 
     def get(self, request, pk):
         project = self.get_object(pk)
-        serializer=ProjectSerializer(project, context= {'request' : request})
+        serializer = ProjectSerializer(project, context={'request': request})
         return Response(serializer.data)
 
-    def put (self, request, pk):
-        project =self.get_object(pk)
-        serializer=ProjectSerializer(project, data=request.data, context= {'request' : request})
+    def put(self, request, pk):
+        project = self.get_object(pk)
+        serializer = ProjectSerializer(
+            project, data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -58,8 +62,3 @@ class ProjectDetail(APIView):
         return Response(
             status=status.HTTP_204_NO_CONTENT
         )
-
-
-
-
-
