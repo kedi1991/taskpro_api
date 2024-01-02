@@ -34,11 +34,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+#DEBUG = 'DEV' in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-kedi1991-taskproapi-cn49kx50hwu.ws-eu105.gitpod.io',
                  os.environ.get(
-                     'ALLOWED_HOST'), 'localhost', 'taskproapi-af20c66822dd.herokuapp.com'
+                     'ALLOWED_HOST'), 'localhost', 'taskproapi-af20c66822dd.herokuapp.com', '.gitpod.io'
                  ]
 
 # Application definition
@@ -106,6 +107,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
 
 if 'CLIENT_ORIGIN' in os.environ:
     if 'CLIENT_ORIGIN_DEV' in os.environ:
@@ -192,6 +195,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
