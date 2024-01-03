@@ -19,8 +19,8 @@ class Task(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     task_name = models.CharField(max_length=255)
     description = models.TextField(blank=False)
-    assignees = models.ForeignKey(User, on_delete=models.CASCADE, related_name='task_assignee')
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='task_project')
+    assignees = models.ForeignKey(User, on_delete=models.CASCADE, related_name='task_assignee', default="")
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='task_project', default="")
     status = models.IntegerField(choices= STATUS_CHOICES, default=0)
     attachment = models.CharField(max_length=255, blank=True)
 
