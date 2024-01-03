@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
 from .models import Task
+from projects.models import Project
 
 
 class TaskListViewTests(APITestCase):
@@ -11,7 +12,8 @@ class TaskListViewTests(APITestCase):
 
     def test_can_list_tasks(self):
         kedi = User.objects.get(username='kedi')
-        Task.objects.create(owner=kedi, task_name='Test task')
+        project = Project.objects.create(owner=kedi, project_name='Test project')
+        Task.objects.create(owner=kedi, task_name='Test task', assignees=kedi, project=project)
         response = self.client.get('/tasks/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         print(response.data, len(response.data))
