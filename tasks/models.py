@@ -1,19 +1,27 @@
 from django.db import models
 from django.contrib.auth.models import User
+from projects.models import Project
 
 
 class Task(models.Model):
     """
     Task model for details of the task assigned to someone/ self
     """
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    STATUS_CHOICES = [
+        (0, "Pending"),
+        (1, "Executing"),
+        (2, "Completed"),
+        (3, "Blocked"),
+    ]
+
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='task_owner')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     task_name = models.CharField(max_length=255)
     description = models.TextField(blank=False)
-    assignees = models.CharField(max_length=255, blank=True)
-    project = models.CharField(max_length=255, blank=True)
-    status = models.CharField(max_length=255, default='Not started')
+    assignees = models.ForeignKey(User, on_delete=models.CASCADE, related_name='task_assignee')
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='task_project')
+    status = models.IntegerField(choices= STATUS_CHOICES, default=0)
     attachment = models.CharField(max_length=255, blank=True)
 
     class Meta:
