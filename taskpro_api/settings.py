@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import dj_database_url
 import os
-import re
 
 if os.path.exists('env.py'):
     import env
@@ -35,11 +34,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = 'DEV' in os.environ
-DEBUG = True
+DEBUG = 'DEBUG' in os.environ
 
-ALLOWED_HOSTS = ['8000-kedi1991-taskproapi-cn49kx50hwu.ws-eu105.gitpod.io',
-                 os.environ.get(
-                     'ALLOWED_HOST'), 'localhost', 'taskproapi-af20c66822dd.herokuapp.com', '.gitpod.io'
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost',
                  ]
 
 # Application definition
@@ -109,10 +106,10 @@ MIDDLEWARE = [
 ]
 
 
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
+
+CORS_ALLOWED_ORIGINS = [
         os.environ.get('CLIENT_ORIGIN')
-    ]
+]
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     extracted_url = re.match(
