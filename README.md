@@ -1,3 +1,5 @@
+**TASK PRO v3.0**
+
 **TASK PRO API**
 
 TaskPRO is a task management app built using the Django framework. This API you will be able to integrate the functionality with thirdparty applications and build rich applications to improve productivity.
