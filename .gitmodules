@@ -1,0 +1,3 @@
+[submodule "taskpro_ui"]
+	path = taskpro_ui
+	url = https://github.com/kedi1991/taskpro-ui.git
