@@ -63,3 +63,35 @@ The specific common goal for all persons. Tasks are assigned to different people
  
 
 
+## Technologies Used
+
+### Languages
+
+- HTML
+- CSS
+- Javascript
+- Python
+
+### Libraries, frameworks and dependencies
+
+- [Axios](https://axios-http.com/docs/intro) - Used axios to send API requests from the React project to the API.
+- [JWT](https://jwt.io/) - library to decode out JSON Web token. Justification: I used JWT to prevent unauthenticated user from making extra network requests to refresh their access token. Also used to remove the timestamp from the browser when the user refreshes token expires or the user logs out.
+- [React](https://17.reactjs.org/) - JavaScript library for building user interfaces
+- [React-Bootstrap 4.6](https://react-bootstrap-v4.netlify.app/)  used Bootstrap React library for UI components, styling and responsiveness.
+- [React Router](https://v5.reactrouter.com/web/guides/quick-start) - Used to enable the navigation among views of various components and control what the user sees depending on the URL they have accessed in the browser.
+
+### Tools & Programs
+
+- [Am I Responsive](http://ami.responsivedesign.is/) was used to create the multi-device mock-up
+- [Chrome dev tools](https://developers.google.com/web/tools/chrome-devtools/) was used for debugging of the code and checking site for responsiveness
+- [Cloudinary](https://cloudinary.com/) to store static files
+- [Favicon.io](https://favicon.io) for making the site favicon
+- [Gitpod](https://gitpod.io/) was IDE used for writing code
+- [GitHub](https://github.com/) was used as a remote repository
+- Validation:
+  - [WC3 Validator](https://validator.w3.org/) was used to validate the html
+  - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) was used to validate the css
+  - [ESLint](https://eslint.org/) used to validate JSX code
+  - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) used to validate performance, accessibility, best practice and SEO of the app
+
+
