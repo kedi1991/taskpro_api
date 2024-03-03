@@ -1,56 +1,41 @@
 **TASK PRO v3.0**
 
-**TASK PRO API**
+![Mockup image](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709507051/taskpro/responsive_design_kifar2.png)
 
-TaskPRO is a task management app built using the Django framework. This API you will be able to integrate the functionality with thirdparty applications and build rich applications to improve productivity.
+[View live website](https://taskproapi-af20c66822dd.herokuapp.com/)
+
+
+TaskPRO 3 is a task management app built using the Django rest framework. This applciation runs a front end based on React JS and a banckend based on Django Rest Framework.
+
+This project is a reconfiguration of the dual project setup into a unified project
+
+The goal for this project was to build a platform for project managers to keep track of tasks assiged to multiple people and keep track of all activities for easy follow up.
+
+### Desired features
+ - Simple and intuitive design
+ - Responsive design to accomodate all screen sizes
+ - User registration and authentication
+ - Send alerts 
+ - Create, read, update, deletion of projects and tasks
+ - Filtering of tasks by status
+ - Assign tasks to multiple users.
+
 
 **Entities**
 
 1. User
 The user with an account with TaskPRO.
-Adding a new user automatically creates a profile with default profile photo.
+Adding a new user automatically creates a profile with a default profile photo.
 
 2. Profile
-The user group with specifi attributes and rights to individual fucntionality of the API
+The user group with specific attributes and rights to individual fucntionality of the API
 
 3. Task
-The assigned duty to a user. this can be assigned to self or by another person.
+The assigned duty to a user. this can be assigned to self or by another person. All tasks must belong to a project
 
 4. Project
-The specific 
-
-Run tests: python manage.py test
+The specific common goal for all persons. Tasks are assigned to different people based on the goals of the project
 
 
 
 
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
-
-`python3 -m http.server`
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
-
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
