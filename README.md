@@ -143,6 +143,7 @@ You can delete a task or project using the same procedure. You cannot delete the
 2. When adding a project, sometimes, tou may be requested to authenticate, click sign in and you will see the logged in status in the nav bar. Then proceeed to create a project
 3. the search filter at the top of the projects and task pages does not work. It has not been configured on time to meet project submission deadlines.
 4. The addition of the task and project view may disappear on smaller screens. Thos was noticed after project compilations and deployment adn could not be changed on time.
+5. No notification is displayed for blank inputs to the new task form and project forms.
 
 ## Technologies Used
 
@@ -170,10 +171,11 @@ You can delete a task or project using the same procedure. You cannot delete the
 - [Gitpod](https://gitpod.io/) was IDE used for writing code
 - [GitHub](https://github.com/) was used as a remote repository
 - Validation:
-  - [WC3 Validator](https://validator.w3.org/) was used to validate the html
-  - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) was used to validate the css
   - [ESLint](https://eslint.org/) used to validate JSX code
   - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) used to validate performance, accessibility, best practice and SEO of the app
 
-##Thanks to
+![lighthouse](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709516454/taskpro/lighthouse_qswyyf.png)
 
+##Thanks to
+The slack community and tutors
+My mentor Gareth McGirr for the troubleshooting tips
