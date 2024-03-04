@@ -63,6 +63,48 @@ The specific common goal for all persons. Tasks are assigned to different people
  
 
 
+## Features Testing
+
+### Home page
+The home page includes a welcome message and  nav bar to access all other fetures of the app
+
+![home page image](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709510404/taskpro/hpage_feme0g.png)
+
+### Sign in
+clicking the sign in link at the top right corner of the top nav bar, you will be able to see a login form. Enterign your credentials will allow you login. There is a possibility of signing up ebe after clicking the sign in link incase you do not have an account.
+
+![sign in page image](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709510691/taskpro/signin_xmigwu.png)
+
+![sign up page image](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709507053/taskpro/signup_page_old_bloxyr.png)
+
+
+### Add task
+After login, you will be able to add tasks into the database. Clinking add tasks link at the top right corner of the nav bar will display a page to add tasks. You will as well be shown a list of assignees (users in the system) and projects to categorise the task under
+
+On successfull submission, you will get a notification of success.
+
+![add task page image](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709511141/taskpro/task_ee_fqa8ov.png)
+
+![new task data page image](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709511140/taskpro/not_task_xqgawy.png)
+
+![new task success page image](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709511141/taskpro/task_success_b0uhbt.png)
+
+### Edit task
+You can edit a task by clickign the blue button at the bottom of the task card. After editing the task, you can save changes.
+
+![edit task](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709511357/taskpro/edit_Task_a1vnz6.png)
+
+### Delete task
+You can delete a task or project using the same procedure. You cannot delete the task or project of another user. You will received a failed notification alert.
+
+![failed delete task](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709511357/taskpro/delete_Fail_ikvdkp.png)
+
+
+
+## Known issues
+1. The top nav bar may not didplay the sign in status on some pages. In this case,  click sign in link to reveal the other links and the sign in status
+2. When adding a project, sometimes, tou may be requested to authenticate, click sign in and you will see the logged in status in the nav bar. Then proceeed to create a project
+
 ## Technologies Used
 
 ### Languages
