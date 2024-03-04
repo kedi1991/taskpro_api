@@ -36,6 +36,15 @@ The assigned duty to a user. this can be assigned to self or by another person. 
 4. Project
 The specific common goal for all persons. Tasks are assigned to different people based on the goals of the project
 
+### Wireframes
+![sign in](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1705632444/taskpro/signin_wireframe_cunai8.png)
+
+![sign up](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1705632444/taskpro/signup_wireframe_rssaam.png)
+
+![nav bar](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1705632444/taskpro/top_navbar_wireframe_hvggy8.png)
+
+![page view](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1705632445/taskpro/page_area_wireframe_adryuw.png)
+
 
 ### User stories
 
@@ -62,6 +71,13 @@ The specific common goal for all persons. Tasks are assigned to different people
  - Delete projects: As an owner of a project I can delete my project so that I can control removal of my projects application
  
 
+## Evolution of the app
+The application has changed drastuclly from the first version to this current state following multiple changes in the user interface to consume API data in a more user friendly way. The summary of interfaces are show below
+
+### Task list
+![image old tasks](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709507054/taskpro/list_tasks_old_qdknvq.png)
+
+![iamge new task](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709511141/taskpro/task_success_b0uhbt.png)
 
 ## Features Testing
 
@@ -104,6 +120,7 @@ You can delete a task or project using the same procedure. You cannot delete the
 ## Known issues
 1. The top nav bar may not didplay the sign in status on some pages. In this case,  click sign in link to reveal the other links and the sign in status
 2. When adding a project, sometimes, tou may be requested to authenticate, click sign in and you will see the logged in status in the nav bar. Then proceeed to create a project
+3. the search filter at the top of the projects and task pages does not work. It has not been configured on time to meet project submission deadlines.
 
 ## Technologies Used
 
