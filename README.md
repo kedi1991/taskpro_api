@@ -175,4 +175,5 @@ You can delete a task or project using the same procedure. You cannot delete the
   - [ESLint](https://eslint.org/) used to validate JSX code
   - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) used to validate performance, accessibility, best practice and SEO of the app
 
+##Thanks to
 
