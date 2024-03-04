@@ -23,18 +23,75 @@ The goal for this project was to build a platform for project managers to keep t
 
 **Entities**
 
-1. User
+1. User (system)
 The user with an account with TaskPRO.
 Adding a new user automatically creates a profile with a default profile photo.
 
-2. Profile
-The user group with specific attributes and rights to individual fucntionality of the API
+2. Profile (custom)
+The user group with specific attributes and rights to individual functionality of the API
 
-3. Task
+| Attribute name | Description | Data type|
+|-----------------|-----------------|-----------------|
+| owner | The user name | User|
+|created_at | Date of creation of the user| DateTimeField|
+|updated_at | Date of creation of updating the user details| DateTimeField|
+|name |The full name of the user |CharField |
+|about | The biography|TextField |
+|image |The profile picture of the user |ImageField |
+
+
+3. Task (custom)
 The assigned duty to a user. this can be assigned to self or by another person. All tasks must belong to a project
 
-4. Project
-The specific common goal for all persons. Tasks are assigned to different people based on the goals of the project
+| Attribute name | Description | Data type|
+|-----------------|-----------------|-----------------|
+| owner(FK) | The user who created the task | User|
+|created_at | Date of creation of task| DateTimeField|
+|task_name |The name of the task |CharField |
+|description | The details of the task|TextField |
+|assignees |Who the task is assigned to |User |
+| related_name| | |
+| project| The project in which the task belongs| Project|
+| status| The status of the task (see status fields below) .|IntegerField |
+|attachment|Any files related to the task|CharField|
+
+
+*The use of attachments was disabled due to project timeline limitations
+
+
+3.1. Status values
+
+| Status choice | status value |
+|-----------------|-----------------|
+| 0 | Pending|
+|1 | Executing|
+|2 |Completed |
+|3 |Blocked |
+
+
+4. Project (custom)
+The common task to be achived by users. Uers are assigned tasks to achieve the objective of the project. Any authenticated user can create a project.
+
+owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    project_name = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+| Attribute name | Description | Data type|
+|-----------------|-----------------|-----------------|
+|owner(FK) | The user who created the project | User|
+|created_at | Date of creation of project| DateTimeField|
+|project_name |The name of the project |CharField |
+|updated_at | When the project was updated|TextField |
+
+
+### The API
+The admin panel to the API can be accessibke from https://8000-kedi1991-taskproapi-kar66wgnemb.ws-eu108.gitpod.io/admin/login/?next=/admin/ 
+
+Username: admin2024
+
+Password: admin2024
+
 
 ### Wireframes
 ![sign in](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1705632444/taskpro/signin_wireframe_cunai8.png)
@@ -44,6 +101,7 @@ The specific common goal for all persons. Tasks are assigned to different people
 ![nav bar](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1705632444/taskpro/top_navbar_wireframe_hvggy8.png)
 
 ![page view](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1705632445/taskpro/page_area_wireframe_adryuw.png)
+
 
 
 ### User stories
@@ -72,12 +130,13 @@ The specific common goal for all persons. Tasks are assigned to different people
  
 
 ## Evolution of the app
-The application has changed drastuclly from the first version to this current state following multiple changes in the user interface to consume API data in a more user friendly way. The summary of interfaces are show below
+The application has evolved from the first version to this current state following multiple changes in the user interface to consume API data and present it in a more user friendly way. The summary of interfaces are show below
 
 ### Task list
 ![image old tasks](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709507054/taskpro/list_tasks_old_qdknvq.png)
 
 ![iamge new task](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709511141/taskpro/task_success_b0uhbt.png)
+
 
 ## Features Testing
 
@@ -119,8 +178,6 @@ You can delete a task or project using the same procedure. You cannot delete the
 ## Deployment of the app
 1. This app contains 2 repositories merged into one
 ![dual project git](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709514115/taskpro/dualgit_efr0od.png)
-
-
 9. Install white noise to manage static files using <code>pip3 install whitenoise==6.4.0</code> and add the dependency to requirements.txt file
 10. Create a staticfiles directory in the root of the API repository
 11. In the settings.py file, add whitnoise in the MIDDLEWARE list
@@ -144,6 +201,12 @@ You can delete a task or project using the same procedure. You cannot delete the
 3. the search filter at the top of the projects and task pages does not work. It has not been configured on time to meet project submission deadlines.
 4. The addition of the task and project view may disappear on smaller screens. Thos was noticed after project compilations and deployment adn could not be changed on time.
 5. No notification is displayed for blank inputs to the new task form and project forms.
+
+## Planned features
+1. Have cpability of tracking progress of tasks and projects
+2. Enable user to update their profile details
+3. Improve the user interface.
+4. Add bootstrap notifications to all actions
 
 ## Technologies Used
 
@@ -176,6 +239,8 @@ You can delete a task or project using the same procedure. You cannot delete the
 
 ![lighthouse](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709516454/taskpro/lighthouse_qswyyf.png)
 
-##Thanks to
-The slack community and tutors
-My mentor Gareth McGirr for the troubleshooting tips
+
+
+## Thanks to
+- The slack community and CI tutors
+- My mentor Gareth McGirr for the troubleshooting tips
