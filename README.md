@@ -116,11 +116,33 @@ You can delete a task or project using the same procedure. You cannot delete the
 ![failed delete task](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709511357/taskpro/delete_Fail_ikvdkp.png)
 
 
+## Deployment of the app
+1. This app contains 2 repositories merged into one
+![dual project git](https://res.cloudinary.com/dr7uvhdmd/image/upload/v1709514115/taskpro/dualgit_efr0od.png)
+
+
+9. Install white noise to manage static files using <code>pip3 install whitenoise==6.4.0</code> and add the dependency to requirements.txt file
+10. Create a staticfiles directory in the root of the API repository
+11. In the settings.py file, add whitnoise in the MIDDLEWARE list
+12. In the TEMPLATES list, add <code> os.path.join(BASE_DIR, 'staticfiles', 'build')</code> in the DIRS key
+13. Add <code> STATIC_ROOT = BASE_DIR / 'staticfiles'</code> and <code> WHITENOISE_ROOT = BASE_DIR / 'staticfiles' / 'build'</code> to the static files section
+14. In the urls.py file, Remove the root_route view from the .views imports and Import the TemplateView from the generic Django views
+15. In the url_patterns list, remove the root_route code and replace it with the TemplateView pointing to the index.html file
+16. At the bottom of the file, add the 404 handler to allow React to handle 404 errors
+17. Add api/ to the beginning of all the API URLs, excluding the path for the home page and admin panel
+18. Open the axiosDefaults.js file, comment back in the axios.defaults.baseURL and set it to "/api"
+19. Collect the admin and DRF staticfiles to the empty staticfiles directory you created earlier, with the following command in the terminal <code>python3 manage.py collectstatic </code>
+20. cd into the front end project and Then run the command to compile and move the React files <code>npm run build && mv build ../staticfiles/. </code>
+21. In the root directory of your project, create a new file named runtime.txt and Inside the runtime.txt, add the following line:<code>python-3.9.16</code>
+22. Run the Django server, in the terminal type <code>python3 manage.py runserver</code>
+23. Open the preview on port 8000
+
 
 ## Known issues
 1. The top nav bar may not didplay the sign in status on some pages. In this case,  click sign in link to reveal the other links and the sign in status
 2. When adding a project, sometimes, tou may be requested to authenticate, click sign in and you will see the logged in status in the nav bar. Then proceeed to create a project
 3. the search filter at the top of the projects and task pages does not work. It has not been configured on time to meet project submission deadlines.
+4. The addition of the task and project view may disappear on smaller screens. Thos was noticed after project compilations and deployment adn could not be changed on time.
 
 ## Technologies Used
 
